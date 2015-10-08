@@ -3,12 +3,12 @@ __author__ = 'ragomez'
 
 
 def fibonacci(n):
-    i = 0
-    j = 1
+    x = 0
+    y = 1
 
-    while j < n:
-        i, j = i, i + j
-        yield i
+    while x <= n:
+        yield x
+        x, y = y, x + y
 
 
 number = int(raw_input('Enter limit of fibonacci sequence:'))
