@@ -2,6 +2,8 @@ from __future__ import print_function
 __author__ = 'ragomez'
 
 from datetime import datetime
+
+
 class Logger(object):
 
     def __init__(self,f):
@@ -10,9 +12,8 @@ class Logger(object):
     def __call__(self, *args, **kwargs):
         arguments = ','.join([str(x) for x in args])
 
-        print('<{}> {}({}, {})'.format(datetime.now(), self.f.func_name, arguments, kwargs))
-        # print('<', ctime(time()), '>', self.f.func_name, '(',args, kwargs, ')')
-        i = self.f(*args, **kwargs);
+        print('<{}> {}(({}), {})'.format(datetime.now(), self.f.func_name, arguments, kwargs))
+        i = self.f(*args, **kwargs)
         return i
 
 
@@ -20,9 +21,11 @@ class Logger(object):
 def f1():
     print('hello!')
 
+
 @Logger
 def f2(foo):
     print('hello!', foo)
+
 
 @Logger
 def f3(foo, bar):
@@ -30,4 +33,5 @@ def f3(foo, bar):
 
 f1()
 f2('abc')
+f3('abc','def')
 f3('abc', bar='def')
