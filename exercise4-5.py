@@ -18,6 +18,7 @@ class MultiplesOf7(object):
     def __iter__(self):
         return self
 
+limit = 100
 
-for number in MultiplesOf7(100):
+for number in MultiplesOf7(limit):
     print(number)
